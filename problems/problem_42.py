@@ -7,7 +7,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
         answers_list.append(int(line))
 progress_ = Progress("Problem 042: Coded triangle numbers", 0, answers_list[42])
 
-with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_42_data.txt') as f:
+with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_42_data.txt') as f:
     for line in f:
         all_words = line.split('","')
 

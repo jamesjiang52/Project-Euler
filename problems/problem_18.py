@@ -5,7 +5,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
         answers_list.append(int(line))
 progress_ = Progress("Problem 018: Maximum path sum I", 0, 13)
 
-all_lines = [line.rstrip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_18_data.txt')]
+all_lines = [line.rstrip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_18_data.txt')]
 rows = [line.split(' ') for line in all_lines]
 rows_int = []
 for row in rows:

@@ -7,7 +7,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
         answers_list.append(int(line))
 progress_ = Progress("Problem 022: Names scores", 0, answers_list[22])
 
-with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_22_data.txt') as f:
+with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_22_data.txt') as f:
     for line in f:
         names = line.split('","')
 names[0] = names[0][1:]

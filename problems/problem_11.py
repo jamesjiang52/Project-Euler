@@ -5,7 +5,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
         answers_list.append(int(line))
 progress_ = Progress("Problem 011: Largest product in a grid", 0, answers_list[11])
 
-all_lines = [line.strip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_11_data.txt')]
+all_lines = [line.strip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_11_data.txt')]
 all_rows = []
 for line in all_lines:
     row = line.split(' ')

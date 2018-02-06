@@ -26,5 +26,5 @@ class Progress:
             minutes = str(int(time_components[0])//60).zfill(2)
             time_bar = '[' + minutes + ':' + seconds + '.' + milliseconds + ']'
 
-        print(time_bar, bar, percent.rjust(6), ' | ', self.problem_number_and_name.ljust(50), '=', self.count, ' '*5, end='\r')
+        print(time_bar, bar, percent.rjust(6), ' | ', self.problem_number_and_name.ljust(54), '=', self.count, ' '*5, end='\r')
 

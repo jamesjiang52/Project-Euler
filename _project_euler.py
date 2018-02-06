@@ -2,6 +2,8 @@ import banner
 import time
 import sys
 
+sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler\\problems')
+
 def print_char(char):
     print(i, end='')
     time.sleep(0.03)

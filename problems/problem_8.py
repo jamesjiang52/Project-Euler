@@ -6,7 +6,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
 progress_ = Progress("Problem 008: Largest product in a series", 0, 	answers_list[8])
 
 str_num = ''
-with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_8_data.txt') as f:
+with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_8_data.txt') as f:
     for line in f:
         str_num += line.rstrip('\n')
 

@@ -4,7 +4,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
     for line in answers:
         answers_list.append(int(line))
 
-all_lines = [line.rstrip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_13_data.txt')]
+all_lines = [line.rstrip('\n') for line in open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_13_data.txt')]
 all_nums = [int(i) for i in all_lines]
 
 progress_ = Progress("Problem 013: Large sum", 0, len(all_nums))

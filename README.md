@@ -7,7 +7,7 @@ Since writing scripts to solve those problems didn't feel quite enough, I also c
 Some of the problems require input data to be read from a text file, and all of them read from the file `answers.txt` at least once. I've specified my own relevant file locations in the scripts, 
 
 ```
-with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\problem_8_data.txt') as f:
+with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\data\\problem_8_data.txt') as f:
 ```
 
 for example. Of course, these locations need to be changed accordingly if you choose to run them on your own computer.
