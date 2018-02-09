@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -10,3 +14,6 @@ progress_.progress()
 
 progress_.count = coin_solutions(200, 7)
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

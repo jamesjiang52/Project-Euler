@@ -1,5 +1,9 @@
 import math
 
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -19,3 +23,6 @@ for i in range(len(digits)):
 progress_.count = sum_
 progress_.total = answers_list[20]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

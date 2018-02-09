@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -29,3 +33,6 @@ for a in range(-1000, 1000):
 progress_.count = max_number_ab
 progress_.total = answers_list[27]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

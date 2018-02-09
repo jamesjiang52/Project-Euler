@@ -1,4 +1,9 @@
 import itertools
+
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -29,3 +34,6 @@ for rearrangement in all_rearrangements_int:
 progress_.count = rearrangement
 progress_.total = answers_list[41]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

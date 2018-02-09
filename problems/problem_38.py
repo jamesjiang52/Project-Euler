@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -16,3 +20,6 @@ for i in range(10000, 5000, -1):
 progress_.count = int(str(i) + str(2*i))
 progress_.total = answers_list[38]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

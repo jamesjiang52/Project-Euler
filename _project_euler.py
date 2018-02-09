@@ -1,13 +1,12 @@
-import banner
 import time
 import sys
 
-sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler\\problems')
+import banner
+banner.banner()
 
-def print_char(char):
-    print(i, end='')
-    time.sleep(0.03)
-    sys.stdout.flush()
+start = time.time()
+
+sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler\\problems')
 
 try:
     import problem_1
@@ -110,17 +109,35 @@ try:
     print('')
     import problem_50
     print('')
+    import problem_51
+    print('')
+    import problem_52
+    print('')
+    import problem_53
+    print('')
+    import problem_54
+    print('')
+    import problem_55
+    print('')
+    import problem_56
+    print('')
+    import problem_57
+    print('')
+    import problem_58
+    print('')
+    import problem_59
+    print('')
+    import problem_60
+    print('')
+    import problem_61
+    print('')
+    import problem_62
+    print('')
+    import problem_63
+    print('')
 
 except Exception as e:
     print(str(e))
 
-time.sleep(0.5)
-
-exit_prompt = "Press ENTER to exit."
-
-print('\n')
-for i in exit_prompt:
-    print_char(i)
-print('')
-
-input()
+import end_text
+end_text.end_text(start)

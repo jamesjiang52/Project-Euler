@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -11,3 +15,6 @@ for a in range(100, 1000):
         if str(num) == str(num)[::-1]:
             progress_.count = max(progress_.count, num)
             progress_.progress()
+
+if __name__ == '__main__':
+    input()

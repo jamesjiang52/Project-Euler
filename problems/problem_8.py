@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -17,3 +21,6 @@ for i in range(1, len(str_num) - 13):
         product *= j
     progress_.count = max(progress_.count, product)
     progress_.progress()
+
+if __name__ == '__main__':
+    input()

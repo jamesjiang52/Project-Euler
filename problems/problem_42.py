@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -24,3 +28,6 @@ for word in all_words:
     if is_triangle(value):
         progress_.count += 1
         progress_.progress()
+
+if __name__ == '__main__':
+    input()

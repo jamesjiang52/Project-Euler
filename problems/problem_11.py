@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -37,3 +41,6 @@ for y_position in range(20):
         if (x_position > 2) and (y_position < 17):
             progress_.count = max(progress_.count, product_diagonal_backward(x_position, y_position))
             progress_.progress()
+
+if __name__ == '__main__':
+    input()

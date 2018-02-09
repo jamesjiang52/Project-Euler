@@ -1,4 +1,9 @@
 import math
+
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -19,3 +24,6 @@ for n in range(round(math.sqrt(x)), 1, -1):
 progress_.count = n
 progress_.total = answers_list[3]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()

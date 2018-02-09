@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -26,3 +30,6 @@ for year in range(1901, 2001):
         if counter % 7 == 6:
             progress_.count += 1
             progress_.progress()
+
+if __name__ == '__main__':
+    input()

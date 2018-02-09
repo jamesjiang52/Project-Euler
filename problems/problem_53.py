@@ -9,12 +9,14 @@ answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
     for line in answers:
         answers_list.append(int(line))
-progress_ = Progress("Problem 021: Amicable numbers", 0, answers_list[21])
 
-for x in range(10, 10000):
-    if (sum_factors(sum_factors(x)) == x) and (sum_factors(x) < 10000) and (sum_factors(x) != x):
-        progress_.count += x
-        progress_.progress()
+progress_ = Progress("Problem 053: Combinatoric selections", 0, answers_list[53])
+
+for n in range(23, 101):
+    for r in range(1, n):
+        if choose(n, r) > 1000000:
+            progress_.count += 1
+            progress_.progress()
 
 if __name__ == '__main__':
     input()

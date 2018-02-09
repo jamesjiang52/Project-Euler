@@ -1,3 +1,7 @@
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from functions import *
 
 from progress import Progress
@@ -14,3 +18,6 @@ while True:
     if num_factors(int((num**2 - num)/2)) > 500:
         break
     num += 1
+
+if __name__ == '__main__':
+    input()

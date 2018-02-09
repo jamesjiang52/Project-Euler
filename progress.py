@@ -17,10 +17,10 @@ class Progress:
 
         elapsed_time = str(time.time() - self.start_time)[:10]
         time_components = elapsed_time.split('.')
-        time_components[1].ljust(3, '0')
-        if round(100*int(time_components[1]) == 0):
+        if round(1000*int(time_components[1])) == 0:
             time_bar = "[00:00.000]"
         else:
+            time_components[1].ljust(3, '0')
             milliseconds = time_components[1][:3]
             seconds = str(int(time_components[0]) % 60).zfill(2)
             minutes = str(int(time_components[0])//60).zfill(2)

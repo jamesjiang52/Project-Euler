@@ -1,5 +1,6 @@
 import math
 import collections
+import copy
 
 def is_prime(x):
     """
@@ -72,7 +73,8 @@ def sum_factors(x):
 
 def is_abundant(x):
     """
-    Checks if the sum of distinct factors of x, not including x itself, is larger than x
+    Checks if the sum of distinct factors of x, not including x itself,
+    is larger than x
     """
     return(sum_factors(x) > x)
 
@@ -102,7 +104,8 @@ def collatz(x):
 
 def written(x):
     """
-    For x >= 0 and x <= 1000, returns the number of letters required to write out x in words
+    For x >= 0 and x <= 1000, returns the number of letters required to
+    write out x in words
     """
     total_letters = 0
     if x == 1000:
@@ -163,7 +166,8 @@ def fib(x):
 
 def recurring_decimals_length(x):
     """
-    Returns the cycle length of the reciprocal of x, if x is a prime number with more than one digit
+    Returns the cycle length of the reciprocal of x,
+    if x is a prime number with more than one digit
     """
     k = 9
     while True:
@@ -174,7 +178,8 @@ def recurring_decimals_length(x):
 
 def coin_solutions(total, coin_index):
     """
-    Returns the number of ways the total amount can be made, with the coin at coin_index being the largest available coin value
+    Returns the number of ways the total amount can be made,
+    with the coin at coin_index being the largest available coin value
     """
     coins = [1, 2, 5, 10, 20, 50, 100, 200]
     if coin_index == 0:
@@ -215,14 +220,43 @@ def is_triangle(x):
     """
     Checks if x is a triangle number
     """
-    n = int(math.sqrt(2*x))
-    return(n*(n + 1) == 2*x)
+    n = (-1 + math.sqrt(8*x + 1))/2
+    return(n == round(n))
 
-def is_pentagon(n):
+def is_square(x):
+    """
+    Checks if x is a square number
+    """
+    n = math.sqrt(x)
+    return(n == round(n))
+
+def is_pentagon(x):
     """
     Checks if x is a pentagon number
     """
-    return((1 + math.sqrt(24*n + 1))/6 == round((1 + math.sqrt(24*n + 1))/6))
+    n = (1 + math.sqrt(24*x + 1))/6
+    return(n == round(n))
+
+def is_hexagon(x):
+    """
+    Checks if x is a hexagon number
+    """
+    n = (1 + math.sqrt(8*x + 1))/4
+    return(n == round(n))
+
+def is_heptagon(x):
+    """
+    Checks if x is a heptagon number
+    """
+    n = (3 + math.sqrt(40*x + 9))/10
+    return(n == round(n))
+
+def is_octagon(x):
+    """
+    Checks if x is an octagon number
+    """
+    n = (1 + math.sqrt(3*x + 1))/3
+    return(n == round(n))
 
 def truncate(x):
     """
@@ -233,3 +267,112 @@ def truncate(x):
         numbers.extend([x % 10**i, x//10**i])
     return(numbers)
 
+def analyze_hand(hand_values, hand_suits):
+    """
+    Returns rank of hand, according to standard poker rules
+    """
+    hand_values.sort()
+    diffs = [hand_values[i + 1] - hand_values[i] for i in range(len(hand_values) - 1)]
+    checker = hand_suits[0]
+    if all(i == 1 for i in diffs) and all(i == checker for i in hand_suits) and (max(hand_values) == 14):
+        return([24, 0]) #royal flush
+    if all(i == 1 for i in diffs) and all(i == checker for i in hand_suits):
+        return([23, 0]) #straight flush
+    if diffs.count(0) == 3:
+        if diffs[0] == diffs[-1]:
+            return([21, 0]) #full house
+        else:
+            return([22, hand_values[diffs.index(0)]]) #four of a kind
+    if all(i == checker for i in hand_suits):
+        return([20, 0]) #flush
+    if diffs.count(0) == 2:
+        if diffs[diffs.index(0) + 1] == 0:
+            return([18, hand_values[diffs.index(0)]]) #three of a kind
+        else:
+            return([17, 0]) #two pairs
+    if diffs.count(0) == 1:
+        return([16, hand_values[diffs.index(0)]]) #one pair
+    if all(i == 1 for i in diffs):
+        return([19, 0]) #straight
+    return([max(hand_values), 0])
+
+def fraction_expansion(x):
+    """
+    Returns a list containing the lengths of the numerator and denominator
+    of the x-th continued fraction expansion of sqrt(2)
+    """
+    numerator = 1
+    denominator = 2
+    for i in range(x - 1):
+        numerator += 2*denominator
+        numerator, denominator = denominator, numerator
+    numerator += denominator
+    return([math.floor(math.log(numerator, 10)), math.floor(math.log(denominator, 10))])
+
+def increment(string):
+    """
+    Increments a string of letters e.g. aaa -> aab, aza -> baa, ...
+    """
+    letters = list('abcdefghijklmnopqrstuvwxyz')
+    if string[-1] != 'z':
+        chars = [char for char in string]
+        chars[-1] = letters[letters.index(chars[-1]) + 1]
+        return(''.join(chars))
+    else:
+        return(increment(string[:-1]) + 'a')
+
+def is_prime_concatenatable(prime_list):
+    """
+    Checks if all pairs of primes in prime_list concatenated together
+    in any order creates another prime, given that
+    check_prime_concatenatable(prime_list[:-1]) == True
+    """
+    for i in range(len(prime_list) - 1):
+        new_prime1 = int(str(prime_list[i]) + str(prime_list[-1]))
+        new_prime2 = int(str(prime_list[-1]) + str(prime_list[i]))
+        if not is_prime(new_prime1) or not is_prime(new_prime2):
+            return False
+    return True
+
+def find_cycle(num_lists, first_pair, last_pair, total):
+    """
+    Checks if an element of a list in num_lists has the property that its
+    first two digits match last_pair. If such an element exists, the list is
+    removed from num_lists and the last two digits of that number becomes the
+    next digits to check. The number is added to the total. The function is
+    recursively called until the length of num_lists is one. If an element in
+    that list has the property that its first two digits match last_pair and
+    its last two digits match first_pair, the total is returned.
+    """
+    if (len(num_lists) == 1) and (100*last_pair + first_pair in num_lists[0]):
+        for num in num_lists[0]:
+            if (num//100 == last_pair) and (num % 100 == first_pair):
+                return(total + num)
+    for num_list in num_lists:
+        for num in num_list:
+            if num//100 == last_pair:
+                num_lists_copy = copy.deepcopy(num_lists)
+                num_lists_copy.remove(num_list)
+                if find_cycle(num_lists_copy, first_pair, num % 100, total + num):
+                    return(find_cycle(num_lists_copy, first_pair, num % 100, total + num))
+    else:
+        return None
+
+def choose(n, r):
+    """
+    Returns the value of nCr
+    """
+    if r > n//2 + 1:
+        r = n - r
+    numerator = 1
+    denominator = 1
+    for i in range(n, n - r, -1):
+        numerator *= i
+        denominator *= (n - i + 1)
+    return(numerator//denominator)
+
+def reverse_and_add(x):
+    """
+    Returns the sum of x and y, where y is formed by reversing the digits of x
+    """
+    return(x + int(str(x)[::-1]))

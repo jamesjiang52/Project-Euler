@@ -1,5 +1,9 @@
 import fractions
 
+if __name__ == '__main__':
+    import sys
+    sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler')
+
 from progress import Progress
 answers_list = ['dummy']
 with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as answers:
@@ -27,3 +31,6 @@ a = fractions.Fraction(product_numerator, product_denominator)
 progress_.count = a.denominator
 progress_.total = answers_list[33]
 progress_.progress()
+
+if __name__ == '__main__':
+    input()
