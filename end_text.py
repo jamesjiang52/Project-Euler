@@ -6,7 +6,7 @@ def print_char(char):
     time.sleep(0.03)
     sys.stdout.flush()
 
-def end_text(start):
+def end_text(start, num_problems):
     elapsed = time.time() - start
     elapsed_str = str(elapsed)[:10]
     time_components = elapsed_str.split('.')
@@ -19,7 +19,7 @@ def end_text(start):
     time.sleep(0.8)
 
     print("\n")
-    num_problem_info = "56 problems were solved."
+    num_problem_info = str(num_problems) + " problems were solved."
     for i in num_problem_info:
         print_char(i)
 

@@ -5,139 +5,165 @@ import banner
 banner.banner()
 
 start = time.time()
+num_problems = 0
 
 sys.path.insert(0, 'C:\\Users\\James Jiang\\Documents\\Project Euler\\problems')
 
+def problem_end():
+    global num_problems
+    num_problems += 1
+    print('')
+
 try:
     import problem_1
-    print('')
+    problem_end()
     import problem_2
-    print('')
+    problem_end()
     import problem_3
-    print('')
+    problem_end()
     import problem_4
-    print('')
+    problem_end()
     import problem_5
-    print('')
+    problem_end()
     import problem_6
-    print('')
+    problem_end()
     import problem_7
-    print('')
+    problem_end()
     import problem_8
-    print('')
+    problem_end()
     import problem_9
-    print('')
+    problem_end()
     import problem_10
-    print('')
+    problem_end()
     import problem_11
-    print('')
+    problem_end()
     import problem_12
-    print('')
+    problem_end()
     import problem_13
-    print('')
+    problem_end()
     import problem_14
-    print('')
+    problem_end()
     import problem_15
-    print('')
+    problem_end()
     import problem_16
-    print('')
+    problem_end()
     import problem_17
-    print('')
+    problem_end()
     import problem_18
-    print('')
+    problem_end()
     import problem_19
-    print('')
+    problem_end()
     import problem_20
-    print('')
+    problem_end()
     import problem_21
-    print('')
+    problem_end()
     import problem_22
-    print('')
+    problem_end()
     import problem_23
-    print('')
+    problem_end()
     import problem_24
-    print('')
+    problem_end()
     import problem_25
-    print('')
+    problem_end()
     import problem_26
-    print('')
+    problem_end()
     import problem_27
-    print('')
+    problem_end()
     import problem_28
-    print('')
+    problem_end()
     import problem_29
-    print('')
+    problem_end()
     import problem_30
-    print('')
+    problem_end()
     import problem_31
-    print('')
+    problem_end()
     import problem_32
-    print('')
+    problem_end()
     import problem_33
-    print('')
+    problem_end()
     import problem_34
-    print('')
+    problem_end()
     import problem_35
-    print('')
+    problem_end()
     import problem_36
-    print('')
+    problem_end()
     import problem_37
-    print('')
+    problem_end()
     import problem_38
-    print('')
+    problem_end()
     import problem_39
-    print('')
+    problem_end()
     import problem_40
-    print('')
+    problem_end()
     import problem_41
-    print('')
+    problem_end()
     import problem_42
-    print('')
+    problem_end()
     import problem_43
-    print('')
+    problem_end()
     import problem_44
-    print('')
+    problem_end()
     import problem_45
-    print('')
+    problem_end()
     import problem_46
-    print('')
+    problem_end()
     import problem_47
-    print('')
+    problem_end()
     import problem_48
-    print('')
+    problem_end()
     import problem_49
-    print('')
+    problem_end()
     import problem_50
-    print('')
+    problem_end()
     import problem_51
-    print('')
+    problem_end()
     import problem_52
-    print('')
+    problem_end()
     import problem_53
-    print('')
+    problem_end()
     import problem_54
-    print('')
+    problem_end()
     import problem_55
-    print('')
+    problem_end()
     import problem_56
-    print('')
+    problem_end()
     import problem_57
-    print('')
+    problem_end()
     import problem_58
-    print('')
+    problem_end()
     import problem_59
-    print('')
+    problem_end()
     import problem_60
-    print('')
+    problem_end()
     import problem_61
-    print('')
+    problem_end()
     import problem_62
-    print('')
+    problem_end()
     import problem_63
-    print('')
+    problem_end()
+    import problem_64
+    problem_end()
+    import problem_65
+    problem_end()
+    import problem_67
+    problem_end()
+    import problem_68
+    problem_end()
+    import problem_69
+    problem_end()
+    import problem_70
+    problem_end()
+    import problem_71
+    problem_end()
+    import problem_72
+    problem_end()
+    import problem_73
+    problem_end()
+    import problem_74
+    problem_end()
 
 except Exception as e:
     print(str(e))
 
 import end_text
-end_text.end_text(start)
+end_text.end_text(start, num_problems)

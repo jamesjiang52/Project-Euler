@@ -12,7 +12,7 @@ with open('C:\\Users\\James Jiang\\Documents\\Project Euler\\answers.txt') as an
 progress_ = Progress("Problem 057: Square root convergents", 0, answers_list[57])
 
 for i in range(1, 1001):
-    if fraction_expansion(i)[0] > fraction_expansion(i)[1]:
+    if fraction_expansion_sqrt_2(i)[0] > fraction_expansion_sqrt_2(i)[1]:
         progress_.count += 1
         progress_.progress()
 

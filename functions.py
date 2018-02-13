@@ -296,7 +296,7 @@ def analyze_hand(hand_values, hand_suits):
         return([19, 0]) #straight
     return([max(hand_values), 0])
 
-def fraction_expansion(x):
+def fraction_expansion_sqrt_2(x):
     """
     Returns a list containing the lengths of the numerator and denominator
     of the x-th continued fraction expansion of sqrt(2)
@@ -307,7 +307,46 @@ def fraction_expansion(x):
         numerator += 2*denominator
         numerator, denominator = denominator, numerator
     numerator += denominator
-    return([math.floor(math.log(numerator, 10)), math.floor(math.log(denominator, 10))])
+    return([math.floor(math.log(numerator, 10)) + 1, math.floor(math.log(denominator, 10)) + 1])
+
+def sum_numerator_fraction_expansion_e(x):
+    """
+    Returns the digit sum of the numerator of the x-th continued fraction of e
+    """
+    numerator = 1
+    if x % 3 == 2:
+        denominator = 2*(x//3 + 1)
+    else:
+        denominator = 1
+    while x > 1:
+        if x % 3 == 0:
+            numerator += 2*(x//3)*denominator
+        else:
+            numerator += denominator
+        numerator, denominator = denominator, numerator
+        x -= 1
+    numerator += 2*denominator
+    digits = [int(i) for i in str(numerator)]
+    return(sum(digits))
+
+
+def len_fraction_expansion_sqrt_period(x):
+    """
+    Returns the period length of the continued fraction expansion of sqrt(x)
+    """
+    a_0 = math.floor(math.sqrt(x))
+    b = a_0
+    c = x - a_0**2
+    len_ = 1
+    seen = [[b, c]]
+    while True:
+        a = math.floor((a_0 + b)/c)
+        b = int(a*c - b)
+        c = int((x - b**2)/c)
+        if [b, c] in seen:
+            return(len_)
+        seen.append([b, c])
+        len_ += 1
 
 def increment(string):
     """
@@ -376,3 +415,39 @@ def reverse_and_add(x):
     Returns the sum of x and y, where y is formed by reversing the digits of x
     """
     return(x + int(str(x)[::-1]))
+
+def totient(x):
+    """
+    Returns the value of the Euler's Totient function of x
+    """
+    if is_prime(x):
+        return(x - 1)
+    p = 1
+    for i in list(set(prime_factors(x))):
+        p *= (i - 1)/i
+    return(int(x*p))
+
+def sum_factorial_digits(x):
+    """
+    Returns the sum of the factorials of the digits of x
+    """
+    factorials = [1, 1, 2, 6, 24, 120, 720, 5040, 40320, 362880]
+    sum_factorial_digits_ = 0
+    for i in str(x):
+        sum_factorial_digits_ += factorials[int(i)]
+    return(sum_factorial_digits_)
+
+def count_triangles(p):
+    """
+    Returns the number of integer right triangles with perimeter p
+    """
+    count = 0
+    for a in range(1, p//4 + 1):
+        c = (a**2 + (p - a)**2)//(2*(p - a))
+        remainder = (a**2 + (p - a)**2) % (2*(p - a))
+        b = p - a - c
+        if (remainder == 0) and (a <= b < c):
+            count += 1
+    return(count)
+
+
