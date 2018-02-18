@@ -1,6 +1,9 @@
 import math
+import numpy as np
 import collections
 import copy
+import decimal
+decimal.getcontext().prec = 58
 
 def is_prime(x):
     """
@@ -348,6 +351,41 @@ def len_fraction_expansion_sqrt_period(x):
         seen.append([b, c])
         len_ += 1
 
+def fraction_expansion_sqrt(x, n):
+    """
+    Returns a list containing the numerator and denominator of the n-th
+    continued fraction expansion of sqrt(x)
+    """
+    current = decimal.Decimal(x).sqrt()
+    int_ = math.floor(current)
+    remainders = []
+    for i in range(len_fraction_expansion_sqrt_period(x)):
+        current = 1/(current - int_)
+        int_ = math.floor(current)
+        remainders.append(int_)
+    len_ = len(remainders)
+    numerator = 1
+    index_ = n % len_
+    index_next = (index_ - 1) % len_
+    denominator = remainders[index_]
+    for i in range(n):
+        numerator += remainders[index_next]*denominator
+        numerator, denominator = denominator, numerator
+        index_next = (index_next - 1) % len_
+    numerator += denominator*math.floor(math.sqrt(x))
+    return([numerator, denominator])
+
+def minimal_solution(D):
+    """
+    Returns the minimum value of x that satisfies x**2 - D*y**2 = 1
+    """
+    n = 0
+    while True:
+        fraction = fraction_expansion_sqrt(D, n)
+        if fraction[0]**2 - D*fraction[1]**2 == 1:
+            return(fraction[0])
+        n += 1
+
 def increment(string):
     """
     Increments a string of letters e.g. aaa -> aab, aza -> baa, ...
@@ -450,4 +488,10 @@ def count_triangles(p):
             count += 1
     return(count)
 
-
+def angle_subtend(vector1, vector2):
+    """
+    Returns the angle subtended by the two points with position vectors vector1
+    and vector2 with respect to the origin
+    """
+    cos_ = np.dot(vector1, vector2)/(np.linalg.norm(vector1)*np.linalg.norm(vector2))
+    return(math.acos(cos_))

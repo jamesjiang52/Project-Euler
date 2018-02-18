@@ -145,6 +145,8 @@ try:
     problem_end()
     import problem_65
     problem_end()
+    import problem_66
+    problem_end()
     import problem_67
     problem_end()
     import problem_68
